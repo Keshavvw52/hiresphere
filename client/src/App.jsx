@@ -54,7 +54,7 @@ useEffect(() => {
 
       console.log("User synced to DB");
 
-      hasSynced.current = true; // ✅ stop future calls
+      hasSynced.current = true; // 
     } catch (error) {
       console.log("ERROR:", error);
     }

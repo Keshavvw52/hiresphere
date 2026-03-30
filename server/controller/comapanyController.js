@@ -48,7 +48,7 @@ export const registerCompany = async (req, res) => {
   }
 };
 
-// Company Login
+
 export const loginCompany = async (req, res) => {
   const { email, password } = req.body;
 
@@ -76,7 +76,7 @@ export const loginCompany = async (req, res) => {
   }
 };
 
-// Get company data
+
 export const getCompanyData = async (req, res) => {
   const company = req.company;
 
@@ -90,7 +90,7 @@ export const getCompanyData = async (req, res) => {
   }
 };
 
-// Post a new Job
+
 export const postJob = async (req, res) => {
   try {
     const { title, description, location, category, level, salary } = req.body;
@@ -104,8 +104,8 @@ export const postJob = async (req, res) => {
       category,
       level,
       salary,
-      companyId: userId,                // ✅ FIX
-      date: Date.now(),         // ✅ FIX
+      companyId: userId,               
+      date: Date.now(),      
     });
 
     res.json({
@@ -121,7 +121,7 @@ export const postJob = async (req, res) => {
     });
   }
 };
-// Get Company Job Applicants
+
 export const getCompanyJobApplicants = async (req, res) => {
   try {
     const companyId = req.company._id;
@@ -138,7 +138,7 @@ export const getCompanyJobApplicants = async (req, res) => {
   }
 };
 
-// Get Company  Posted Jobs
+
 export const getCompanyPostedJobs = async (req, res) => {
   try {
     const companyId = req.company._id;
@@ -159,7 +159,7 @@ export const getCompanyPostedJobs = async (req, res) => {
 
     console.log("jobsData:", jobsData);
 
-    // Adding No of appicants info in data
+    
     res.json({ success: true, jobsData });
   } catch (error) {
     console.error("Error:", error);
@@ -167,13 +167,13 @@ export const getCompanyPostedJobs = async (req, res) => {
   }
 };
 
-// Change Job Application Status
+
 export const ChangeJobApplicationStatus = async (req, res) => {
   
   try{
     const { id, status } = req.body;
 
-  // Find Job Application and update Status
+  
 
   await JobApplication.findOneAndUpdate(
     {_id: id,},
@@ -188,7 +188,7 @@ export const ChangeJobApplicationStatus = async (req, res) => {
   
 };
 
-// Change Job Visiblity
+
 export const changeVisiblity = async (req, res) => {
   try {
     const { id } = req.body;
